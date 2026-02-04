@@ -1,13 +1,31 @@
 # Rapport TP7 - SMP
-## École Centrale de Nantes
 
-**Auteurs:** Thomas D. et Charles
-**Date:** 4 février 2026
-**Objectif du TP:** Manipulation de classes, surcharge d'opérateurs et polymorphisme
+**Auteurs :** Thomas D. et Charles  
+**Date :** 4 février 2026
+
+## Table des matières
+
+- [Introduction](#introduction)
+- [Création d'une classe Point](#création-dune-classe-point)
+- [Surcharge d'opérateurs](#surcharge-dopérateurs)
+- [Formes géométriques abstraites](#formes-géométriques-abstraites)
+- [Formes géométriques concrètes](#formes-géométriques-concrètes)
+  - [Classe Cercle](#classe-cercle)
+  - [Classe Rectangle](#classe-rectangle)
+  - [Classe Carré](#classe-carré)
+- [Liste de formes](#liste-de-formes)
+- [Compilation et exécution](#compilation-et-exécution)
+- [Conclusion](#conclusion)
 
 ---
 
-## 1. Création d'une classe Point
+## Introduction
+
+Ce tp porte sur la manipulation de classes en C++, la surcharge d'opérateurs et le polymorphisme. Le projet consiste à développer un système de gestion de formes géométriques permettant de créer et manipuler différents types de formes (points, cercles, rectangles, carrés) et de calculer leurs propriétés (surface, périmètre, boîte englobante).
+
+---
+
+## Création d'une classe Point
 
 ### Classe Point demandée
 
@@ -189,7 +207,7 @@ void testPoint() {
 
 ---
 
-## 2. Surcharge d'opérateurs
+## Surcharge d'opérateurs
 
 ### Opérateurs demandés
 
@@ -231,7 +249,7 @@ Les tests montrent que les opérateurs fonctionnent correctement.
 
 ---
 
-## 3. Formes géométriques abstraites
+## Formes géométriques abstraites
 
 ### Classe Forme demandée
 
@@ -305,30 +323,30 @@ ostream& operator<<(ostream& s, Forme const& f){
 ### Diagramme de classes
 
 ```
-                    ┌─────────────────┐
-                    │      Point      │
-                    └─────────────────┘
-                            △
-                            │ utilise
-                            │
-                    ┌─────────────────┐
-                    │      Forme      │
-                    │   (abstraite)   │
-                    ├─────────────────┤
-                    │ - pRef : Point  │
-                    ├─────────────────┤
-                    │ + Forme()       │
-                    │ + Forme(Point)  │
-                    │ + getpRef()     │
-                    │ + operator+=    │
-                    │ + perimetre()*  │
-                    │ + surface()*    │
-                    └─────────────────┘
+┌─────────────────┐
+│      Point      │
+└─────────────────┘
+        △
+        │ utilise
+        │
+┌─────────────────┐
+│      Forme      │
+│   (abstraite)   │
+├─────────────────┤
+│ - pRef : Point  │
+├─────────────────┤
+│ + Forme()       │
+│ + Forme(Point)  │
+│ + getpRef()     │
+│ + operator+=    │
+│ + perimetre()*  │
+│ + surface()*    │
+└─────────────────┘
 ```
 
 ---
 
-## 4. Formes géométriques concrètes
+## Formes géométriques concrètes
 
 ### Classes demandées
 
@@ -339,7 +357,7 @@ ostream& operator<<(ostream& s, Forme const& f){
 - Définir les méthodes abstraites
 - Surcharger `<<` pour afficher le type et les valeurs des attributs
 
-### 4.1 Classe Cercle
+### Classe Cercle
 
 #### Déclaration dans Forme.h
 
@@ -421,7 +439,7 @@ ostream& operator<<(ostream& s, Cercle const& c)
 Cercle::~Cercle() {}
 ```
 
-### 4.2 Classe Rectangle
+### Classe Rectangle
 
 #### Déclaration dans Forme.h
 
@@ -517,7 +535,7 @@ ostream& operator<<(ostream& s, Rectangle const& r)
 Rectangle::~Rectangle() {}
 ```
 
-### 4.3 Classe Carré
+### Classe Carré
 
 Le Carré hérite de Rectangle.
 
@@ -658,7 +676,7 @@ Carre : centre = Point(10, 10), cote = 5
 
 ---
 
-## 5. Liste de formes
+## Liste de formes
 
 ### Classe ListeFormes demandée
 
