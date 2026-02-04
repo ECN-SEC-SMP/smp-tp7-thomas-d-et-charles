@@ -1,21 +1,31 @@
+#include <iostream>
+
+using namespace std;
 
 class Point
 {
 private:
     float x; //abcisse
     float y; //ordonnée
+
 public:
     // accesseurs
-    float getx();
-    float gety();
+    float getx() const;
+    float gety() const;
+
     // mutateurs
     void setx(float xs);
     void sety(float ys);
     void setCoords(float xs, float ys);
+    
     // methodes
     // -- translater
-    translater();
-    type? translater(float x, float y); //avec 2 reels
+    void translater(int dx, int dy);
+    void translater(Point p);
+
+    // surcharge d'operateurs
+    void operator += (const Point &);
+
     // contructeurs
     Point(); //sans paramètres
     Point(float xi, float yi); //avec 2 reels
@@ -25,4 +35,4 @@ public:
     ~Point();
 };
 
-
+ostream & operator << (ostream&, const Point &);
